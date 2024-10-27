@@ -1,4 +1,29 @@
 ---
+// @ts-ignore
+import { initializeApp } from "firebase/app";
+// @ts-ignore
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+	apiKey: "AIzaSyCGQ0tYppWFJkuSxBhOpkH0xVDmX245Vdc",
+	authDomain: "project-id.firebaseapp.com",
+	databaseURL: "https://project-id.firebaseio.com",
+	projectId: "project-id",
+	storageBucket: "project-id.appspot.com",
+	messagingSenderId: "637908496727",
+	appId: "2:637908496727:web:a4284b4c99e329d5",
+	measurementId: "G-9VP01NDSXJ",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Analytics and get a reference to the service
+const analytics = getAnalytics(app);
+
+console.log("analytics---analytics");
+console.log(analytics);
+
 interface Props {
 	title: string;
 }
@@ -9,10 +34,10 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
-		<script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
+		<!-- <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
 		<script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"
 		></script>
-		<script defer src="/__/firebase/init.js?useEmulator=true"></script>
+		<script defer src="/__/firebase/init.js?useEmulator=true"></script> -->
 
 		<meta charset="UTF-8" />
 		<meta name="description" content="Chesterfield, Missouri" />
@@ -30,7 +55,7 @@ const { title } = Astro.props;
 		</nav>
 
 		<slot />
-		<script>
+		<!-- <script>
 			document.addEventListener("DOMContentLoaded", function () {
 				try {
 					// @ts-ignore
@@ -41,7 +66,7 @@ const { title } = Astro.props;
 					console.log("ERROR", err);
 				}
 			});
-		</script>
+		</script> -->
 	</body>
 </html>
 <style is:global>
