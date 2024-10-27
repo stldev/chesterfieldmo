@@ -1,29 +1,4 @@
 ---
-// @ts-ignore
-import { initializeApp } from "firebase/app";
-// @ts-ignore
-import { getAnalytics } from "firebase/analytics";
-
-const firebaseConfig = {
-	apiKey: "AIzaSyCGQ0tYppWFJkuSxBhOpkH0xVDmX245Vdc",
-	authDomain: "project-id.firebaseapp.com",
-	databaseURL: "https://project-id.firebaseio.com",
-	projectId: "project-id",
-	storageBucket: "project-id.appspot.com",
-	messagingSenderId: "637908496727",
-	appId: "2:637908496727:web:a4284b4c99e329d5",
-	measurementId: "G-9VP01NDSXJ",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Analytics and get a reference to the service
-const analytics = getAnalytics(app);
-
-console.log("analytics---analytics");
-console.log(analytics);
-
 interface Props {
 	title: string;
 }
@@ -55,6 +30,26 @@ const { title } = Astro.props;
 		</nav>
 
 		<slot />
+		<script type="module">
+			import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+			import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+
+			const firebaseConfig = {
+				projectId: "chesterfieldmo-52851",
+				messagingSenderId: "637908496727",
+				appId: "2:637908496727:web:a4284b4c99e329d5",
+				measurementId: "G-9VP01NDSXJ",
+			};
+
+			// Initialize Firebase
+			const app = initializeApp(firebaseConfig);
+
+			// Initialize Analytics and get a reference to the service
+			const analytics = getAnalytics(app);
+
+			console.log("analytics---analytics");
+			console.log(analytics);
+		</script>
 		<!-- <script>
 			document.addEventListener("DOMContentLoaded", function () {
 				try {
