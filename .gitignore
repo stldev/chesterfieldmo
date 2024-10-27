@@ -62,8 +62,22 @@ node_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
+# environment variables
 .env
+.env.production
 
 # dataconnect generated files
 .dataconnect
+
+
+# build output
+dist/
+
+# generated types
+.astro/
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
