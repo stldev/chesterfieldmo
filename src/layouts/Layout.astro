@@ -30,27 +30,32 @@ const { title } = Astro.props;
 		</nav>
 
 		<slot />
-		<!-- <script type="module">
+		<script type="module">
 			import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 			import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 
 			const firebaseConfig = {
-				apiKey: "AIzaSyCGQ0tYppWFJkuSxBhOpkH0xVDmX245Vdc",
+				apiKey: "AIzaSyBP6fUb7AypXv85brKmyOVAOIPojshAFZM",
+				authDomain: "chesterfieldmo-52851.firebaseapp.com",
 				projectId: "chesterfieldmo-52851",
-				appId: "2:637908496727:web:a4284b4c99e329d5",
+				storageBucket: "chesterfieldmo-52851.appspot.com",
+				messagingSenderId: "547731634778",
+				appId: "1:547731634778:web:5def7d8b194e5ba43bf663",
 				measurementId: "G-WP6JS7HP1S",
+				// measurementId: "G-KZZL9KJECK",
 			};
 
 			// Initialize Firebase
 			const app = initializeApp(firebaseConfig);
+			console.log("analytics---analytics...app");
+			console.log(app);
 
-			// Initialize Analytics and get a reference to the service
 			const analytics = getAnalytics(app);
 
 			console.log("analytics---analytics");
 			console.log(analytics);
-		</script> -->
-		<script>
+		</script>
+		<!-- <script>
 			document.addEventListener("DOMContentLoaded", function () {
 				try {
 					console.log("firebase---firebase");
@@ -79,7 +84,7 @@ const { title } = Astro.props;
 					console.log("ERROR", err);
 				}
 			});
-		</script>
+		</script> -->
 	</body>
 </html>
 <style is:global>
