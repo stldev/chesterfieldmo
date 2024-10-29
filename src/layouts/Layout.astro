@@ -9,11 +9,6 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
-		<script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
-		<script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"
-		></script>
-		<script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
 		<meta charset="UTF-8" />
 		<meta name="description" content="Chesterfield, Missouri" />
 		<meta name="viewport" content="width=device-width" />
@@ -46,44 +41,14 @@ const { title } = Astro.props;
 
 			// Initialize Firebase
 			const app = initializeApp(firebaseConfig);
-			console.log("analytics---analytics...app");
-			console.log(app);
+			// console.log("analytics---analytics...app");
+			// console.log(app);
 
 			const analytics = getAnalytics(app);
 
-			console.log("analytics---analytics");
-			console.log(analytics);
-		</script>
-		<!-- <script>
-			document.addEventListener("DOMContentLoaded", function () {
-				try {
-					console.log("firebase---firebase");
-					// @ts-ignore
-					console.log(firebase);
-
-					const firebaseConfig = {
-						apiKey: "AIzaSyCGQ0tYppWFJkuSxBhOpkH0xVDmX245Vdc",
-						projectId: "chesterfieldmo-52851",
-						appId: "2:637908496727:web:a4284b4c99e329d5",
-						measurementId: "G-WP6JS7HP1S",
-					};
-
-					// @ts-ignore
-					const app = firebase.initializeApp(firebaseConfig);
-					console.log("firebase---firebase--___app");
-					console.log(app);
-
-					// @ts-ignore
-					const aaa = firebase.analytics(); // call to activate
-					console.log("firebase---firebase--aaa");
-					console.log(aaa);
-					// @ts-ignore
-					firebase.analytics().logEvent("tutorial_completed");
-				} catch (err) {
-					console.log("ERROR", err);
-				}
-			});
-		</script> -->
+			// console.log("analytics---analytics");
+			// console.log(analytics);
+		</script>	
 	</body>
 </html>
 <style is:global>
