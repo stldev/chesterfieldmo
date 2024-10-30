@@ -15,6 +15,18 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<!-- update the version number as needed -->
+		<script defer src="/__/firebase/10.12.5/firebase-app-compat.js"
+		></script>
+		<!-- include only the Firebase features as you need -->
+		<script defer src="/__/firebase/10.12.5/firebase-analytics-compat.js"
+		></script>
+		<!-- 
+			  initialize the SDK after all desired features are loaded, set useEmulator to false
+			  to avoid connecting the SDK to running emulators.
+			-->
+		<script defer src="/__/firebase/init.js?useEmulator=true"></script>
 	</head>
 	<body>
 		<nav>
@@ -26,23 +38,16 @@ const { title } = Astro.props;
 
 		<slot />
 
-		<script type="module">
-			import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-			import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-
-			const app = initializeApp({
-				apiKey: "AIzaSyBP6fUb7AypXv85brKmyOVAOIPojshAFZM",
-				projectId: "chesterfieldmo-52851",
-				appId: "1:547731634778:web:5def7d8b194e5ba43bf663",
+		<script>
+			declare const firebase: any;
+			document.addEventListener("DOMContentLoaded", function () {
+				console.log("111---------");
+				console.log(firebase);
+				const aaa = firebase.analytics(); // call to activate
+				console.log("111---------aaa");
+				console.log(aaa);
+				firebase.analytics().logEvent("tutorial_completed");
 			});
-
-			// console.log("analytics---analytics...app");
-			// console.log(app);
-
-			const analytics = getAnalytics(app);
-
-			// console.log("analytics---analytics");
-			// console.log(analytics);
 		</script>
 	</body>
 </html>
