@@ -40,12 +40,10 @@ const { title } = Astro.props;
 		<script>
 			declare const firebase: any;
 			document.addEventListener("DOMContentLoaded", function () {
-				console.log("111---------");
-				console.log(firebase);
-				const aaa = firebase.analytics(); // call to activate
-				console.log("111---------aaa");
-				console.log(aaa);
-				firebase.analytics().logEvent("tutorial_completed");
+				firebase.analytics(); // call to activate
+				firebase
+					.analytics()
+					.logEvent(`testrick-${new Date().toLocaleString()}`);
 			});
 		</script>
 	</body>
