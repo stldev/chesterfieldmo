@@ -10,6 +10,12 @@ import Card from "../components/Card.astro";
 		</h1>
 		<h3 style="text-align: center;">November 5th, 2024</h3>
 		<p class="instructions">
+			<span id="pollPlaceName">checking...</span><br /><span
+				id="pollPlaceCount">checking...</span
+			><br />
+			<button id="refreshPollPlaceCount">refresh</button>
+		</p>
+		<p class="instructions">
 			Here are our <code>opinions</code> on how you should vote on our local
 			issues.<br /> Official link to get your specific ballot is:
 			<a
@@ -20,12 +26,6 @@ import Card from "../components/Card.astro";
 			>.
 			<br />
 			The items below are for <code> Precinct LAF-029</code>.
-		</p>
-		<p class="instructions">
-			<span id="pollPlaceName">checking...</span><br /><span
-				id="pollPlaceCount">checking...</span
-			><br />
-			<button id="refreshPollPlaceCount">refresh</button>
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
