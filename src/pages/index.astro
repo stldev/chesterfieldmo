@@ -12,6 +12,9 @@ import Card from "../components/Card.astro";
 		<p class="instructions">
 			<span id="pollPlaceName">checking...</span><br /><span
 				id="pollPlaceCount">checking...</span
+			><br />___________________________________<br />
+			<span id="pollPlaceName2">checking...</span><br /><span
+				id="pollPlaceCount2">checking...</span
 			><br />
 			<button id="refreshPollPlaceCount">refresh</button>
 		</p>
@@ -51,8 +54,12 @@ import Card from "../components/Card.astro";
 				"checking...";
 			document.getElementById("pollPlaceCount")!.textContent =
 				"checking...";
+			document.getElementById("pollPlaceName2")!.textContent =
+				"checking...";
+			document.getElementById("pollPlaceCount2")!.textContent =
+				"checking...";
 
-			await new Promise((resolve) => setTimeout(resolve, 777));
+			await new Promise((resolve) => setTimeout(resolve, 555));
 
 			window
 				.fetch(
@@ -65,6 +72,7 @@ import Card from "../components/Card.astro";
 							"DANIEL BOONE BRANCH LIBRARY",
 						),
 					)[0];
+
 					if (match) {
 						document.getElementById("pollPlaceName")!.textContent =
 							match.attributes.name;
@@ -72,6 +80,18 @@ import Card from "../components/Card.astro";
 							match.attributes.inline;
 						// console.log(match.attributes.name);
 						// console.log(match.attributes.inline);
+					}
+
+					const match2 = data.features.filter((f: any) =>
+						f.attributes.name.includes("WILDWOOD CITY HALL"),
+					)[0];
+
+					if (match2) {
+						document.getElementById("pollPlaceName2")!.textContent =
+							match2.attributes.name;
+						document.getElementById(
+							"pollPlaceCount2",
+						)!.textContent = match2.attributes.inline;
 					}
 				});
 		}
