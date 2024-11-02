@@ -21,6 +21,12 @@ import Card from "../components/Card.astro";
 			<br />
 			The items below are for <code> Precinct LAF-029</code>.
 		</p>
+		<p class="instructions">
+			<span id="pollPlaceName">checking...</span><br /><span
+				id="pollPlaceCount">checking...</span
+			><br />
+			<button id="refreshPollPlaceCount">refresh</button>
+		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://www.rayhartmannforcongress.com"
@@ -39,6 +45,44 @@ import Card from "../components/Card.astro";
 			/>
 		</ul>
 	</main>
+	<script>
+		async function refreshPollPlaceCount() {
+			document.getElementById("pollPlaceName")!.textContent =
+				"checking...";
+			document.getElementById("pollPlaceCount")!.textContent =
+				"checking...";
+
+			await new Promise((resolve) => setTimeout(resolve, 777));
+
+			window
+				.fetch(
+					"https://services6.arcgis.com/wkbq75VVf2MvUvs7/arcgis/rest/services/lookup_view_polling_places_2024_11/FeatureServer/0/query?f=json&maxRecordCountFactor=1&resultOffset=0&resultRecordCount=100&where=abs_type%20IN%20(%27boe%27%2C%27sat%27)&orderByFields=OBJECTID&outFields=*&outSR=102100&spatialRel=esriSpatialRelIntersects",
+				)
+				.then(async (resp) => {
+					const data: any = await resp.json();
+					const match = data.features.filter((f: any) =>
+						f.attributes.name.includes(
+							"DANIEL BOONE BRANCH LIBRARY",
+						),
+					)[0];
+					if (match) {
+						document.getElementById("pollPlaceName")!.textContent =
+							match.attributes.name;
+						document.getElementById("pollPlaceCount")!.textContent =
+							match.attributes.inline;
+						// console.log(match.attributes.name);
+						// console.log(match.attributes.inline);
+					}
+				});
+		}
+
+		const button = document.querySelector("#refreshPollPlaceCount");
+
+		if (button)
+			button.addEventListener("click", () => refreshPollPlaceCount());
+
+		refreshPollPlaceCount();
+	</script>
 </Layout>
 
 <style>
